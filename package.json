@@ -1,0 +1,41 @@
+{
+  "name": "gh-comparator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "beefy": "beefy ./app/purereact/index.jsx:app.js --cwd ./build --index=./build/index.html --live -- -t [ babelify --presets [ es2015 react ] ] --extension=js --extension=jsx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kst404/gh-comparator.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kst404/gh-comparator/issues"
+  },
+  "homepage": "https://github.com/kst404/gh-comparator#readme",
+  "devDependencies": {
+    "babel-core": "^6.5.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-main-bower-files": "^1.3.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.5.0",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1"
+  }
+}
