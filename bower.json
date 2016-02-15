@@ -1,0 +1,23 @@
+{
+  "name": "gh-comparator",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Kst <kst404@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kst404/gh-comparator",
+  "moduleType": [
+    "es6"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "~2.0.4"
+  }
+}
