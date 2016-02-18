@@ -1,11 +1,7 @@
 import React from 'react'
 
-function Post({title }) {
-  return (
-    <li>
-      {title}
-    </li>
-  )
+function Post({ title }) {
+  return <li>{title}</li>
 }
 
 export default function({ isLoading, items, loadingError }) {

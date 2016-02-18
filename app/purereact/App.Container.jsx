@@ -8,8 +8,15 @@ import Selector from './Selector.Component'
 /**
  * propTypes
  * refs
- * tests - Mocha, Chai, Jasmine, Karma
+ * tests - Mocha, Chai, Jasmine, Tape, Jest + Karma
  * + fetch errors
+ */
+/**
+ * Tests:
+ * + 1. jasmine & React Test Utils
+ * + 2. & karma
+ * 3. & istanbul, karma-coverage, jasmine-coverage
+ * 4. & eslint
  */
 
 export default class App extends Component {
