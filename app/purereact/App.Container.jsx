@@ -15,7 +15,7 @@ import Selector from './Selector.Component'
  * Tests:
  * + 1. jasmine & React Test Utils
  * + 2. & karma
- * 3. & istanbul, karma-coverage, jasmine-coverage
+ * 3. & istanbul, karma-coverage
  * 4. & eslint
  */
 

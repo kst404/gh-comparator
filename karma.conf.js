@@ -14,9 +14,9 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
+
     files: [
-      '**/__tests__/*Spec.js',
-      '**/__tests__/*Spec.jsx'
+      '__tests__/*Spec.{js,jsx}'
     ],
 
 
@@ -28,15 +28,15 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.js': ['browserify'],
-      '**/*.jsx': ['browserify']
+      '**/*.{js,jsx}': ['browserify']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    // , 'dots', 'threshold'
+    reporters: ['mocha', 'coverage'], //, 'coverage'
 
 
     // web server port
@@ -70,7 +70,27 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     browserify: {
-      transform: ['babelify']
+      transform: [require('browserify-istanbul')({
+        instrumenter: require('isparta'),
+        ignore: ['**/__tests__/**'],
+        includeUntested: true
+      }),'babelify'],
+      extensions: ['.js', '.jsx'],
+      debug: true,
+      bundleDelay: 1000
+    },
+
+    coverageReporter: {
+    //   // configure the reporter to use isparta for JavaScript coverage
+    //   // Only on { "karma-coverage": "douglasduteil/karma-coverage#next" }
+    //   instrumenters: { isparta : require('isparta') },
+    //   instrumenter: {
+    //     '**/*.js': 'isparta',
+    // ignore: ['**/__tests__/**']
+    //   }
+      dir: '__tests__/coverage',
+      subdir: '.' //function(browser) {return browser.toLowerCase().split(/[ /-]/)[0]}
+
     }
   })
 }
