@@ -28,7 +28,7 @@ describe("Posts Component", () => {
 
   })
 
-  it("should show 'Loading posts...' message if isLoading = true", () => {
+  it("should show 'Loading posts...' message if isLoading == true", () => {
     propsStub.isLoading = true
     const posts = renderStatelessComponent(<Posts {...propsStub} />)
 
@@ -48,4 +48,8 @@ describe("Posts Component", () => {
     expect(posts.textContent).toContain(TEST_STRING_1)
     expect(posts.textContent).toContain(TEST_STRING_2)
   })
+
+    it("should not throw when no items supplied", () => {
+      expect( () => renderStatelessComponent(<Posts isLoading={false} loadingError={null} />) ).not.toThrow()
+    })
 })

@@ -6,16 +6,17 @@ import Posts from './Posts.Component'
 import Selector from './Selector.Component'
 
 /**
- * propTypes
+ * + propTypes
  * refs
- * tests - Mocha, Chai, Jasmine, Tape, Jest + Karma
+ * + tests - Mocha, Chai, Jasmine, Tape, Jest + Karma
  * + fetch errors
+ * react hot loader
  */
 /**
  * Tests:
  * + 1. jasmine & React Test Utils
  * + 2. & karma
- * 3. & istanbul, karma-coverage
+ * + 3. & istanbul, karma-coverage
  * 4. & eslint
  */
 
@@ -51,11 +52,11 @@ export default class App extends Component {
 
   render() {
     const { subreddit, posts, isLoading, loadingError } = this.state
-    const subredditLink = linkState(this, 'subreddit')
+    // const subredditLink = linkState(this, 'subreddit')
     return (
       <div className="container">
         <h4>Subreddit &quot;{subreddit}&quot;</h4>
-        <Selector valueLink={subredditLink} onClick={this.loadSubreddit} />
+        <Selector valueLink={linkState(this, 'subreddit')} onClick={this.loadSubreddit} />
         <Posts items={posts} isLoading={isLoading} loadingError={loadingError} />
       </div>
     )

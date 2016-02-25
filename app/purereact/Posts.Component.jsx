@@ -11,7 +11,7 @@ Post.defaultProps = {
   title: '[Untitled]'
 }
 
-const Posts = ({ isLoading, items, loadingError }) => {
+const Posts = ({ isLoading, items = [], loadingError }) => {
   if(loadingError !== null) {
     return <div>{loadingError}</div>
   }
@@ -20,12 +20,16 @@ const Posts = ({ isLoading, items, loadingError }) => {
     return <div>Loading posts...</div>
   }
 
-  return <ul>{items.map( ({ id, title }) => <Post title={title} key={id} />)}</ul>
+  return (
+    <ul>
+      {items.map( ({ id, title }) => <Post title={title} key={id} /> )}
+    </ul>
+  )
 }
 
 Posts.propTypes = {
   isLoading: React.PropTypes.bool.isRequired,
-  items: React.PropTypes.array.isRequired,
+  items: React.PropTypes.array,
   loadingError: React.PropTypes.string
 }
 
