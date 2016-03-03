@@ -77,7 +77,14 @@ module.exports = function(config) {
       }),'babelify'],
       extensions: ['.js', '.jsx'],
       debug: true,
-      bundleDelay: 1000
+      bundleDelay: 1000,
+      configure: function(bundle) {
+        bundle.on('prebundle', function() {
+          //needed by enzyme
+          bundle.external('react/lib/ReactContext')
+          bundle.external('react/lib/ExecutionEnvironment')
+        })
+      }
     },
 
     coverageReporter: {
